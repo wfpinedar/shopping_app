@@ -5,24 +5,25 @@ from django.contrib.auth.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password']
+        fields = '__all__'
+        #extra_kwards = {'password':{ 'write_only': True}}
 
 class ShipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shipment
-        fields = ["delivery", "destination", "order", "created_at"]
+        fields = '__all__'
 
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
-        fields = ["amount", "fees", "orders", "created_at"]
+        fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ["name", "price", "order", "created_at"]
+        fields = '__all__'
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ["user", "status", "created_at"]
+        model = Order
+        fields = '__all__'
